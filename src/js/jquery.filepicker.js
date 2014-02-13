@@ -8,7 +8,7 @@
   var pluginName = 'filepicker';
   
   var defaults = {
-    style: 'bootstrap3'
+    style: 'auto'
   };
   
   var dataOptions = ['label'];
