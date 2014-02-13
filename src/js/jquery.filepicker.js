@@ -79,7 +79,7 @@
     }
     
     function changed() {
-      console.log("CHANGED");
+      // changed
     }
     
     function update() {
