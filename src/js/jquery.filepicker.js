@@ -1,8 +1,7 @@
 +function ( $, window) {
   
   // mugine
-  var Mugine = (function(){var d=document,F=window,q="div",f="wrap",e="push",u="join",l="data",w="split",n="object",I="string",M="replace",D="element",t="nodeType",J="innerHTML",r="attributes",j="childNodes",k="parentNode",x="firstChild",s="appendChild",E="insertBefore",C="replaceChild",y="setAttribute",L="createElement",a="data-variable",c="querySelectorAll",H="createDocumentFragment",m=(function(){var N={};return function(U,S,Q){Q=Q||{};for(var P in z){S["_"+P]=(function(V,W){return function(){V._data=W;var X=V.apply(this,arguments);delete V._data;return X}})(z[P],S)}var T=Q.tokens||{};T.buffer=T.buffer||"=";T.start=T.start||"<%";T.end=T.end||"%>";var R=N[U]=N[U]||new Function("obj","var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('"+U[M](/[\r\t\n]/g," ")[w](T.start)[u]("\t")[M](new RegExp("\\(\\(\\^\\|"+T.end+"\\)\\[\\^\t\\]\\*\\)","g"),"$1\r")[M](new RegExp("\t"+T.buffer+"(.*?)"+T.end,"g"),"',$1,'")[w]("\t")[u]("');")[w](T.end)[u]("p.push('")[w]("\r")[u]("\\'")+"');} p = p.filter(function(v) {return typeof v == 'string' ? v.replace(/^s+|s+$/g, '').length : true});for (var i = 0; i < p.length; i++) { var o = p[i]; if (o && o.outerHTML) p[i] = o.outerHTML; }return p.length > 1 ? p.join('') : typeof p[0] == 'undefined' ? '' : p[0];");var O=S?R(S):R;for(var P in z){delete S["_"+P]}return O}})();function p(ac,T,O){var R=h(T);for(var Q in R){var ab=R[Q];ab[t]?ab[y](a,Q):null}var U=m(ac,T,O);var ad=g(U);var X=ad[c]("*["+a+"]");var X=ad.querySelectorAll("*["+a+"]");for(var S=0,aa;aa=X[S];S++){var N=aa.getAttribute(a),ab=R[N];if(ab){if(ab[t]){for(var Y=0,V;V=aa[r][Y];Y++){ab[y](V.nodeName,V.nodeValue)}if(!ab[j].length){for(var W=0,P=aa[j];W<P.length;W++){ab[s](P[W--])}}aa[k][C](ab,aa)}else{if(typeof elem!="object"){var Z=ab;ab=aa;ab[J]=Z}}}}for(var Q in R){var ab=R[Q];ab[t]?ab.removeAttribute(a):null}return ad}var z={build:function(){return B.call(this,arguments[0],arguments[1],arguments.callee._data)}};function B(O,S,N){var V=null,N=N||{};if(typeof S=="string"){V=p(S,N,z)}else{if(S instanceof Array){V=O=O||d[H]();for(var P=0,U;U=S[P];P++){O[s](B.call(this,null,U,N))}}else{if(typeof S=="object"){var Q=S[D];V=O=O&&O[t]?O:Q&&Q[t]?Q:typeof Q=="string"?p(Q,N,z)[x]:d[L](S.nodeName||S.tagName||q);var T=S[f];for(var R in S[r]){O[y](b(R),m(S[r][R],N))}if(S[j]){B.call(this,O,S[j],N)}i(O,S,N);if(T){V=O=G(O,B.call(this,null,T,N))}}}}return V}var o=[];function A(P){for(var O=0,R;R=o[O];O++){if(R[D]==P){o.splice(O--,1);for(var N=0,Q;Q=R.markup[N];N++){Q[k][C](P,Q)}break}}}function v(S,V,R){R=R||{};A.call(this,S);var T=S.cloneNode(),U=S[k],P=T;U?U[E](T,S):null;var X=V[j];if(typeof V=="object"&&!(V instanceof Array)&&(!X||X.length==1)){V[D]=S}R[D]=R[D]||S;var Y=B.call(this,null,V,R);var O=[],W=Y[j];for(var Q=0,N;N=W[Q];Q++){O[e](N)}o[e]({element:S,markup:O});if(P){P[k][C](Y,P)}return Y}function K(){}K.prototype={render:function(O,P,S){var R=typeof O==I?d[c](O):O instanceof Array?O:[O];for(var N=0,Q;Q=R[N];N++){v.call(this,Q,P,S)}return R},clean:function(N){A.call(this,N)},helpers:z};function b(N){return N[M](/\W+/g,"-")[M](/([a-z\d])([A-Z])/g,"$1-$2")}function g(O){if(typeof O!="string"){return O}var Q,P=d[L](q),N=d[H]();P[J]=O;while(Q=P[x]){N[s](Q)}return N}function i(O,P,R){for(var N in P){if(!!([D,r,l,j,f].indexOf(N)+1)){continue}var Q=P[N];typeof Q==n&&!Q[t]?arguments.callee(O[N]||{},Q,R):O[N]=typeof Q==I?m(Q,R):Q}return O}function G(N,Q){if(!Q){return N}var O=N[k],P=N.nextSibling;Q=Q[t]===11?Q[x]:Q;Q[s](N);if(O){O[E](Q,P)}return Q}function h(R,Q,N){Q=Q||"",N=N||{};for(var P in R){var O=R[P],S=Q?Q+"["+P+"]":P;if(typeof O=="undefined"||O==null){continue}N[S]=O;if(typeof O==n&&!O.outerHTML){h(O,S,N)}}return N}if($=jQuery){$.fn.render=$.fn.render||function(N,O){return this.each(function(){F.mugine.render(this,N,O);return $(this)})}}F.Mugine=F.Mugine||K;F.mugine=F.mugine||new K();return K})();
-  
+  var Mugine = (function(){var e=document,H=window,r="div",g="wrap",f="push",v="join",m="data",x="split",o="object",K="string",O="replace",F="element",u="nodeType",L="innerHTML",s="attributes",k="childNodes",l="parentNode",y="firstChild",t="appendChild",G="insertBefore",E="replaceChild",z="setAttribute",N="createElement",a="data-variable",d="querySelectorAll",J="createDocumentFragment",C={start:"#{",end:"}",buffer:""},c={start:"<%",end:"%>",buffer:"="},n=(function(){var P={};return function(W,U,S){S=S||{};for(var R in A){U["_"+R]=(function(X,Y){return function(){X._data=Y;var Z=X.apply(this,arguments);delete X._data;return Z}})(A[R],U)}var V=S.tokens||c;var T=P[W]=P[W]||new Function("obj","var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('"+W[O](/[\r\t\n]/g," ")[x](V.start)[v]("\t")[O](new RegExp("\\(\\(\\^\\|"+V.end+"\\)\\[\\^\t\\]\\*\\)","g"),"$1\r")[O](new RegExp("\t"+V.buffer+"(.*?)"+V.end,"g"),"',$1,'")[x]("\t")[v]("');")[x](V.end)[v]("p.push('")[x]("\r")[v]("\\'")+"');} p = p.filter(function(v) {return typeof v == 'string' ? v.replace(/^s+|s+$/g, '').length : true});for (var i = 0; i < p.length; i++) { var o = p[i]; if (o && o.outerHTML) p[i] = o.outerHTML; }return p.length > 1 ? p.join('') : typeof p[0] == 'undefined' ? '' : p[0];");var Q=U?T(U):T;for(var R in A){delete U["_"+R]}return Q}})();function q(ad,U,ae){ae=ae||{};var S=i(U);for(var R in S){var ac=S[R];ac[u]?ac[z](a,R):null}var V=n(ad,U,ae);var af=h(V);var Y=af[d]("*["+a+"]");var Y=af.querySelectorAll("*["+a+"]");for(var T=0,ab;ab=Y[T];T++){var P=ab.getAttribute(a),ac=S[P];if(ac){if(ac[u]){for(var Z=0,W;W=ab[s][Z];Z++){ac[z](W.nodeName,W.nodeValue)}if(!ac[k].length){for(var X=0,Q=ab[k];X<Q.length;X++){ac[t](Q[X--])}}ab[l][E](ac,ab)}else{if(typeof elem!="object"){var aa=ac;ac=ab;ac[L]=aa}}}}for(var R in S){var ac=S[R];ac[u]?ac.removeAttribute(a):null}return af}var A={build:function(){return D.call(this,arguments[0],arguments[1],arguments.callee._data)}};function D(Q,U,P){var X=null,P=P||{};if(typeof U=="string"){X=q(U,P,{helpers:A})}else{if(U instanceof Array){X=Q=Q||e[J]();for(var R=0,W;W=U[R];R++){Q[t](D.call(this,null,W,P))}}else{if(typeof U=="object"){var S=Q||U[F];X=(function(){if(typeof S=="string"){var Y=q(S,P,{helpers:A,tokens:C})[k];if(Y.length==1&&Y[0][u]==1){return Y[0]}else{throw ("property 'element' must evaluate to a single dom element")}}else{if(typeof S=="object"&&S[u]){return S}}return null})()||e[N](U.nodeName||U.tagName||r);Q=X;var V=U[g];for(var T in U[s]){Q[z](b(T),n(U[s][T],P))}if(U[k]){D.call(this,Q,U[k],P)}j(Q,U,P);if(V){X=Q=I(Q,D.call(this,null,V,P))}}}}return X}var p=[];function B(R){for(var Q=0,T;T=p[Q];Q++){if(T[F]==R){p.splice(Q--,1);for(var P=0,S;S=T.markup[P];P++){S[l][E](R,S)}break}}}function w(U,X,T){T=T||{};B.call(this,U);var V=U.cloneNode(),W=U[l],R=V;W?W[G](V,U):null;var Z=X[k];if(typeof X=="object"&&!(X instanceof Array)&&(!Z||Z.length==1)){X[F]=U}T[F]=T[F]||U;var aa=D.call(this,null,X,T);var Q=[],Y=aa[k];for(var S=0,P;P=Y[S];S++){Q[f](P)}p[f]({element:U,markup:Q});if(R){R[l][E](aa,R)}return aa}function M(){}M.prototype={render:function(Q,R,U){var T=typeof Q==K?e[d](Q):Q instanceof Array?Q:[Q];for(var P=0,S;S=T[P];P++){w.call(this,S,R,U)}return T},clean:function(P){B.call(this,P)},helpers:A};function b(P){return P[O](/\W+/g,"-")[O](/([a-z\d])([A-Z])/g,"$1-$2")}function h(Q){if(typeof Q!="string"){return Q}var S,R=e[N](r),P=e[J]();R[L]=Q;while(S=R[y]){P[t](S)}return P}function j(Q,R,T){for(var P in R){if(!!([F,s,m,k,g].indexOf(P)+1)){continue}var S=R[P];typeof S==o&&!S[u]?arguments.callee(Q[P]||{},S,T):Q[P]=typeof S==K?n(S,T,{helpers:A,tokens:S.indexOf(c.start)>=0?c:C}):S}return Q}function I(P,S){if(!S){return P}var Q=P[l],R=P.nextSibling;S=S[u]===11?S[y]:S;S[t](P);if(Q){Q[G](S,R)}return S}function i(T,S,P){S=S||"",P=P||{};for(var R in T){var Q=T[R],U=S?S+"["+R+"]":R;if(typeof Q=="undefined"||Q==null){continue}P[U]=Q;if(typeof Q==o&&!Q.outerHTML){i(Q,U,P)}}return P}if($=jQuery){$.fn.render=$.fn.render||function(P,Q){return this.each(function(){H.mugine.render(this,P,Q);return $(this)})}}H.Mugine=H.Mugine||M;H.mugine=H.mugine||new M();return M})();
   
   var $window = $(window);
   var pluginName = 'filepicker';
@@ -146,8 +145,7 @@
     }
     
     function isJQueryUI() {
-      // TODO: detection
-      return $('body').hasClass('jquery-ui');
+      return $('<div></div>').addClass('ui-front').css('z-index') > 1;
     }
   
     function init() {
@@ -197,9 +195,9 @@
   var _styles = {
     'default': {
       ui: [
-        { element: '<%= preview %>', className: 'filepicker-preview'}, 
-        { className: 'filepicker-ui', childNodes: [{ element: '<%= button %>', innerHTML: '<%= element.getAttribute("data-label") %>' }, { element: '<%= input %>' }]},  
-        { element: '<%= element %>' }
+        { element: '#{ preview }', className: 'filepicker-preview'}, 
+        { className: 'filepicker-ui', childNodes: [{ element: '#{ button }', innerHTML: '<%= element.getAttribute("data-label") %>' }, { element: '#{ input }' }]},  
+        { element: '#{ element }' }
       ], 
       thumbnail: {
         wrap: '<div style="margin-bottom: 20px; text-align: center; border-radius: 5px"></div>', 
@@ -208,20 +206,20 @@
     }, 
     'bootstrap': {
       ui: [
-        { element: '<%= preview %>' }, 
+        { element: '#{ preview }' }, 
         {
           className: 'input-group', 
           childNodes: [{
-            element: '<%= button %>', 
+            element: '#{ button }', 
             className: 'btn btn-default', 
             wrap: '<div class="input-group-btn"></div>', 
             innerHTML: '<i class="glyphicon glyphicon-upload"></i> <%= element.getAttribute("data-label") %>'
           }, {
-            element: '<%= input %>',  
+            element: '#{ input }',  
             className: 'form-control', 
-            placeholder: '<%= element.placeholder %>'
+            placeholder: '#{ element.placeholder }'
           }]
-        }, { element: '<%= element %>' }
+        }, { element: '#{ element }' }
       ], 
       thumbnail: {
         wrap: '<div class="thumbnail"></div>'
@@ -229,22 +227,22 @@
     }, 
     'jquery-ui': {
       ui: [{
-        element: '<%= preview %>'
+        element: '#{ preview }'
       }, {
         className: 'ui-buttonset', 
         childNodes: [
           {
-            element: '<%= button %>',  
+            element: '#{ button }',  
             className: 'ui-button ui-state-default ui-corner-left <% if (!element.getAttribute("data-label")) { %> ui-button-icon-only<% } else { %> ui-button-text-icon-primary<% } %>', 
             innerHTML: '<span class="ui-button-icon-primary ui-icon  ui-icon-document"></span><span class="ui-button-text"><%= element.getAttribute("data-label") || "&nbsp;" %></span>'
           }, 
           {
-            element: '<%= input %>',  
+            element: '#{ input }',  
             className: 'ui-button ui-state-default ui-corner-right', 
-            placeholder: '<%= element.placeholder %>'
+            placeholder: '#{ element.placeholder }'
           }, 
           { 
-            element: '<%= element %>' 
+            element: '#{ element }' 
           }
         ]
       }], 
