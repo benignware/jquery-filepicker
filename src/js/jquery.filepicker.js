@@ -36,7 +36,7 @@
     var $input = $('<input/>'), input = $input.get(0);
     var $button = $('<button type="button"></button>'), button = $button.get(0);
       
-    var style = $.fn.filepicker.getStyle(
+    var style = typeof options.style == 'string' ? $.fn.filepicker.getStyle(
       options.style == "auto" ? 
       // detect styles
       isBootstrap() ? 'bootstrap' : 
@@ -44,7 +44,7 @@
       'default'
       // option value
        : options.style
-    );
+    ) : options.style;
     
     $window
       .on('resize', function(e) {

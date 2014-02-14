@@ -18,27 +18,33 @@
     
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css">
-        
+    
+    <script src="jquery.example.js"></script>
     <script src="../../mugen.js/src/mugine.js"></script>
     <script src="../src/js/jquery.filepicker.js"></script>
     <link rel="stylesheet" href="../src/css/filepicker.default.css">
+    
+    
     
     <script>
     
        
        $(document).ready(function() {
         
-        $("input[type='file'].default").filepicker({
+        
+        $("input[type='file'].filepicker-default").filepicker({
            style: 'default'
          });
        
-         $("input[type='file'].bootstrap").filepicker({
-           style: 'auto'
+         $("input[type='file'].filepicker-bootstrap").filepicker({
+           style: 'bootstrap'
          });
          
-         $("input[type='file'].jquery-ui").filepicker({
+         $("input[type='file'].filepicker-jquery-ui").filepicker({
            style: 'jquery-ui'
          });
+         
+         
        });
         
     </script>
@@ -70,28 +76,86 @@
   
     <div class="container">
     
-      <h1>Embedded markup styles</h1>
-      <div class="row">
+      <h1>Basic usage</h1>
+      
+      <div class="row" data-example>
          <div class="col-md-4">
-           <h2>Default</h2>
-           <input data-label="Upload" class="filepicker default" type="file" placeholder="Select a file..." multiple="multiple"/>
+           <input data-example data-label="Upload" class="filepicker" type="file" multiple="multiple"/>
+         </div>
+       </div>
+       
+      <script type="text/javascript" data-example>
+        $(function() {
+          $("input[type='file'].filepicker").filepicker();
+        });
+      </script>
+    
+      <h2>Styles</h2>
+      
+      
+      <h3>Default</h3>
+      <div class="row">
+        <div class="col-md-4">
+           <input data-label="Upload" class="filepicker-default" type="file" placeholder="Select a file..." multiple="multiple"/>
          </div>
        </div>
     
+      <h3>Bootstrap</h3>
        <div class="row">
          <div class="col-md-4">
-           <h2>Bootstrap</h2>
-           <input data-label="Upload" class="filepicker bootstrap" type="file" multiple="multiple"/>
+           <input data-label="Upload" class="filepicker-bootstrap" type="file" multiple="multiple"/>
          </div>
        </div>
     
+      
+      <h3>jQuery-UI</h3>
       <div class="row">
          <div class="col-md-4">
-           <h2>jQuery-UI</h2>
-           <input data-label="Upload" class="filepicker jquery-ui" type="file" placeholder="Select a file..." multiple="multiple"/>
+           <input data-label="Upload" class="filepicker-jquery-ui" type="file" placeholder="Select a file..." multiple="multiple"/>
          </div>
       </div>
-    
+      
+      <h3>Custom</h3>
+      <p>Create a collapsible filepicker using bootstrap</p>
+      <div class="row" data-example>
+         <div class="col-md-4">
+           <input id="filepicker" data-label="Upload" class="filepicker-custom" type="file" placeholder="Select a file..." multiple="multiple" data-example/>
+         </div>
+      </div>
+
+      <script type="text/javascript" data-example>
+      $(function() {
+        $("#filepicker").filepicker({
+           style: {
+             ui: 
+             '<div class="panel-group" id="<%= element.getAttribute("id") + "_panel_group" %>">' + 
+               '<div class="panel panel-default">' + 
+                 '<div class="panel-heading">' + 
+                   '<h4 class="panel-title">' + 
+                      '<a ' + 
+                        'data-toggle="collapse" ' + 
+                        'data-parent="#<%= element.getAttribute("id") + "_panel_group" %>" ' + 
+                        'href="#<%= element.getAttribute("id") + "_panel_collapse" %>">' + 
+                        'Collapsible File Upload' + 
+                      '</a>' + 
+                   '</h4>' +
+                 '</div>' + 
+                 '<div id="<%= element.getAttribute("id") + "_panel_collapse" %>" class="panel-collapse collapse">' +
+                   '<div class="panel-body">' + 
+                     '<%= preview %><%= _build(input, {className: "form-control", placeholder: element.placeholder}) %>' + 
+                   '</div>' +
+                 '</div>' +  
+               '</div>' + 
+             '</div>', 
+             thumbnail: {
+               wrap: '<div class="thumbnail"></div>'
+             }
+           }
+         });
+       });
+      </script>
+      
+      
     </div>
     
   </body>
