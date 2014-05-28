@@ -115,4 +115,15 @@ Default value: `null`
 
 Override thumbnail rendering by providing a callback function with the following arguments `img`, `file`. Return `false` in order to prevent default style-rendering.
 
+#### options.resize
+Type: `Function`
+Default value: `null`
+
+This callback is fired when the component is resized. 
+
+#### options.change
+Type: `Function`
+Default value: `null`
+
+This callback is fired on file select. A list of all files is provided by the first argument. 
    

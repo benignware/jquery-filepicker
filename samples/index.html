@@ -24,11 +24,8 @@
     <script src="../src/js/jquery.filepicker.js"></script>
     <link rel="stylesheet" href="../src/css/filepicker.default.css">
     
-    
-    
     <script>
     
-       
        $(document).ready(function() {
         
         $("input[type='file'].filepicker-default").filepicker({
@@ -36,14 +33,21 @@
          });
        
          $("input[type='file'].filepicker-bootstrap").filepicker({
-           style: 'bootstrap'
+           style: 'bootstrap', 
+           change: function(files) {
+             console.log("CHANGE", files);
+           }, 
+           resize: function() {
+             console.log("RESIZE");
+           }, 
+           renderThumbnail: function(img, file) {
+             console.log("render thumbnail", file);
+           }
          });
          
          $("input[type='file'].filepicker-jquery-ui").filepicker({
            style: 'jquery-ui'
          });
-         
-         
          
        });
         

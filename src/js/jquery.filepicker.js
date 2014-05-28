@@ -170,6 +170,10 @@
 
       }
       
+      if (typeof options.change === 'function') {
+        options.change.call(this, files);
+      }
+      
       update.call(instance);
     }
     
