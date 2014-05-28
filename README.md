@@ -29,7 +29,8 @@ Advanced usage
 --------------
 
 ### Custom style example
-Create a collapsible filepicker using bootstrap-collapse.
+Create a collapsible filepicker using bootstrap-collapse. 
+For more information on the template-structure please refer to [mugine](http://github.com/rexblack/mugine.js).
 
 ```js
 $("input[type='file']").filepicker({
