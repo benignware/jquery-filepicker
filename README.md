@@ -5,7 +5,7 @@ A customizable jquery filepicker component.
 
 * Works out-of-the-box with bootstrap and jquery-ui without the need of any further stylesheets
 
-Usage
+Basic usage
 -----
 
 ```html
@@ -25,28 +25,7 @@ Therefore you may want to add the corresponding css to your application:
 <link rel="stylesheet" href="jquery-filepicker/css/filepicker.default.css">
 ```
 
-
-### Options
-
-#### options.style
-Type: `String`
-Default value: `auto`
-
-Can be one of the following predefined styles 'bootstrap', 'jquery-ui', 'default' or 'auto'. You can also provide a [mugine](http://github.com/rexblack/mugine.js) template.
-
-#### options.renderUI
-Type: `Function`
-Default value: `null`
-
-Override rendering ui by providing a callback function with the following arguments `element`, `button`, `input`, `preview`. Return `false` in order to prevent default style-rendering.
-
-#### options.renderThumbnail
-Type: `Function`
-Default value: `null`
-
-Override thumbnail rendering by providing a callback function with the following arguments `img`, `file`. Return `false` in order to prevent default style-rendering.
-
-Advanced Usage
+Advanced usage
 --------------
 
 ### Custom style example
@@ -113,4 +92,27 @@ $(function() {
   });
 });
 ```
+
+
+Options
+-------
+
+#### options.style
+Type: `String`
+Default value: `auto`
+
+Can be one of the following predefined styles 'bootstrap', 'jquery-ui', 'default' or 'auto'. You can also provide a [mugine](http://github.com/rexblack/mugine.js) template.
+
+#### options.renderUI
+Type: `Function`
+Default value: `null`
+
+Override rendering ui by providing a callback function with the following arguments `element`, `button`, `input`, `preview`. Return `false` in order to prevent default style-rendering.
+
+#### options.renderThumbnail
+Type: `Function`
+Default value: `null`
+
+Override thumbnail rendering by providing a callback function with the following arguments `img`, `file`. Return `false` in order to prevent default style-rendering.
+
    
