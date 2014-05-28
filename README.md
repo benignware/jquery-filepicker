@@ -101,7 +101,7 @@ Options
 Type: `String`
 Default value: `auto`
 
-Can be one of the following predefined styles 'bootstrap', 'jquery-ui', 'default' or 'auto'. You can also provide a [mugine](http://github.com/rexblack/mugine.js) template.
+Can be one of the following predefined styles `bootstrap`, `jquery-ui`, `default` or `auto`. You can also provide an object containing the properties `ui` and `thumbnail` as [mugine](http://github.com/rexblack/mugine.js)-templates.
 
 #### options.renderUI
 Type: `Function`
