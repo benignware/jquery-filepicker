@@ -33,16 +33,7 @@
          });
        
          $("input[type='file'].filepicker-bootstrap").filepicker({
-           style: 'bootstrap', 
-           change: function(files) {
-             console.log("CHANGE", files);
-           }, 
-           resize: function() {
-             console.log("RESIZE");
-           }, 
-           renderThumbnail: function(img, file) {
-             console.log("render thumbnail", file);
-           }
+           style: 'bootstrap'
          });
          
          $("input[type='file'].filepicker-jquery-ui").filepicker({
