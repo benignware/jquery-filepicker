@@ -8,9 +8,13 @@ A customizable jquery filepicker component.
 Usage
 -----
 
+```html
+<input data-label="Upload" type="file"/>
+```       
+         
 ```js
 $(function() {
-  $("input[type='file'].default").filepicker();
+  $("input[type='file']").filepicker();
 })
 ```
 
@@ -47,7 +51,7 @@ Override thumbnail rendering by providing a callback function with the following
 Create a collapsible filepicker using bootstrap-collapse.
 
 ```js
-$("#filepicker").filepicker({
+$("input[type='file']").filepicker({
   style: {
     ui: 
       '<div class="panel-group" id="<%= element.getAttribute("id") + "_panel_group" %>">' + 
@@ -83,7 +87,7 @@ Although recommended way of customizing markup is by using a style-template, you
 
 ```js
 $(function() {
-  $("input[type='file'].filepicker-callbacks").each(function() {
+  $("input[type='file']").each(function() {
     
     var ui = null;
     $(this).filepicker({
