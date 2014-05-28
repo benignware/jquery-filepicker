@@ -7,7 +7,9 @@
   var pluginName = 'filepicker';
   
   var defaults = {
-    style: 'auto'
+    style: 'auto', 
+    renderUI: null, 
+    renderThumbnail: null
   };
   
   var dataOptions = ['label'];
@@ -36,7 +38,7 @@
     var $input = $('<input/>'), input = $input.get(0);
     var $button = $('<button type="button"></button>'), button = $button.get(0);
       
-    var style = $.fn.filepicker.getStyle(
+    var style = typeof options.style == 'string' ? $.fn.filepicker.getStyle(
       options.style == "auto" ? 
       // detect styles
       isBootstrap() ? 'bootstrap' : 
@@ -44,7 +46,7 @@
       'default'
       // option value
        : options.style
-    );
+    ) : options.style;
     
     $window
       .on('resize', function(e) {
@@ -70,12 +72,23 @@
       });
     
     function renderUI() {
-      // render
-      var result = mugine.render(element, style.ui, {
-        button: button, 
-        input: input, 
-        preview: preview
-      });
+
+      var renderStyle = true;
+      
+      if (typeof options.renderUI == "function") {
+        var retVal = options.renderUI.call(this, element, button, input, preview);
+        if (typeof retVal != 'undefined') {
+          renderStyle = retVal;
+        }
+      }
+      if (renderStyle) {
+        // render
+        var result = mugine.render(element, style.ui, {
+          button: button, 
+          input: input, 
+          preview: preview
+        });
+      }
     }
     
     function changed() {
@@ -92,16 +105,33 @@
     
     function renderPreview() {
 
+      var instance = this;
+      
       $preview.html("");
+      
       // Loop through the FileList and render image files as thumbnails.
       $(files).each(function() {
         if (!this.type.match('image.*')) {
           return;
         }
-        var $thumbnail = $('<img src="' + this.src + '" title="' + this.name + '"/>');
+        var $thumbnail = $('<img src="' + this.src + '" title="' + this.name + '" style="max-width: 100%; height: auto"/>');
         $preview.append($thumbnail);
-        mugine.render($thumbnail.get(0), style.thumbnail, this);
+        
+        var renderStyle = true;
+    
+        if (typeof options.renderThumbnail == "function") {
+          var retVal = options.renderThumbnail.call(instance, $thumbnail[0], this);
+          if (typeof retVal != 'undefined') {
+            renderStyle = retVal;
+          }
+        }
+        
+        if (renderStyle) {
+          mugine.render($thumbnail.get(0), style.thumbnail, this);
+        }
+          
       });
+      
     }
     
     function layout() {
@@ -109,6 +139,9 @@
         position: 'absolute', 
         visibility: 'hidden' 
       });
+      if (typeof options.resize == "function") {
+        options.resize.call(this);
+      }
     }
 
     

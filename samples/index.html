@@ -31,7 +31,6 @@
        
        $(document).ready(function() {
         
-        
         $("input[type='file'].filepicker-default").filepicker({
            style: 'default'
          });
@@ -43,6 +42,7 @@
          $("input[type='file'].filepicker-jquery-ui").filepicker({
            style: 'jquery-ui'
          });
+         
          
          
        });
@@ -78,17 +78,22 @@
     
       <h1>Basic usage</h1>
       
-      <div class="row" data-example>
+      <pre data-example="example-basic-html"></pre>
+      
+      <script type="text/javascript" data-example="example-basic-script">
+        $(function() {
+          $("input[type='file'].filepicker-basic").filepicker();
+        });
+      </script>
+      
+      <div class="row">
          <div class="col-md-4">
-           <input data-example data-label="Upload" class="filepicker" type="file" multiple="multiple"/>
+           <input data-example="example-basic-html" data-label="Upload" class="filepicker-basic" type="file" multiple="multiple"/>
          </div>
        </div>
        
-      <script type="text/javascript" data-example>
-        $(function() {
-          $("input[type='file'].filepicker").filepicker();
-        });
-      </script>
+      
+      
     
       <h2>Styles</h2>
       
@@ -125,35 +130,75 @@
 
       <script type="text/javascript" data-example>
       $(function() {
-        $("#filepicker").filepicker({
-           style: {
-             ui: 
-             '<div class="panel-group" id="<%= element.getAttribute("id") + "_panel_group" %>">' + 
-               '<div class="panel panel-default">' + 
-                 '<div class="panel-heading">' + 
-                   '<h4 class="panel-title">' + 
-                      '<a ' + 
-                        'data-toggle="collapse" ' + 
-                        'data-parent="#<%= element.getAttribute("id") + "_panel_group" %>" ' + 
-                        'href="#<%= element.getAttribute("id") + "_panel_collapse" %>">' + 
-                        'Collapsible File Upload' + 
-                      '</a>' + 
-                   '</h4>' +
-                 '</div>' + 
-                 '<div id="<%= element.getAttribute("id") + "_panel_collapse" %>" class="panel-collapse collapse">' +
-                   '<div class="panel-body">' + 
-                     '<%= preview %><%= _build(input, {className: "form-control", placeholder: element.placeholder}) %>' + 
-                   '</div>' +
-                 '</div>' +  
-               '</div>' + 
-             '</div>', 
-             thumbnail: {
-               wrap: '<div class="thumbnail"></div>'
-             }
-           }
-         });
-       });
+  $("#filepicker").filepicker({
+    style: {
+      ui: 
+        '<div class="panel-group" id="<%= element.getAttribute("id") + "_panel_group" %>">' + 
+          '<div class="panel panel-default">' + 
+            '<div class="panel-heading">' + 
+              '<h4 class="panel-title">' + 
+                '<a ' + 
+                  'data-toggle="collapse" ' + 
+                  'data-parent="#<%= element.getAttribute("id") + "_panel_group" %>" ' + 
+                  'href="#<%= element.getAttribute("id") + "_panel_collapse" %>">' + 
+                  'Collapsible File Upload' + 
+                '</a>' + 
+              '</h4>' +
+            '</div>' + 
+            '<div id="<%= element.getAttribute("id") + "_panel_collapse" %>" class="panel-collapse collapse">' +
+              '<div class="panel-body">' + 
+                '<%= preview %><%= _build(input, {className: "form-control", placeholder: element.placeholder}) %>' + 
+              '</div>' +
+            '</div>' +  
+          '</div>' + 
+        '</div>', 
+        thumbnail: {
+          wrap: '<div class="thumbnail"></div>'
+        }
+      }
+    });
+  });
       </script>
+      
+      
+      <h3>Control rendering using callbacks</h3>
+      <p>Although recommended way of customizing markup is by using a style-template, you can handle rendering on your own by making use of the 'renderUI'- and 'renderPreview'-callbacks </p>
+      
+      <pre data-example="example-callbacks-html"></pre>
+      
+      <script data-example>
+        $(function() {
+          $("input[type='file'].filepicker-callbacks").each(function() {
+            
+            var ui = null;
+            $(this).filepicker({
+              renderUI: function(element, button, input, preview) {
+                if (!ui) {
+                  ui = document.createElement('div');
+                  ui.appendChild(button);
+                  // we don't want the input here
+                  //ui.appendChild(input);
+                  ui.appendChild(preview);
+                  element.parentNode.insertBefore(ui, element);
+                }
+                button.innerHTML = $(element).data('label');
+                return false;
+              }, 
+              renderThumbnail: function(img, file) {
+                $(img).wrap($('<div style="border: 1px solid #CCCCCC; border-radius: 4px; background: #F5F5F5; padding: 4px; margin: 4px 0;"></div>'));
+                return false;
+              }
+            });
+          });
+        });
+      </script>
+      
+      <div class="row">
+         <div class="col-md-4">
+           <input data-label="Upload" class="filepicker-callbacks" type="file" placeholder="Select a file..." multiple="multiple" data-example="example-callbacks-html"/>
+         </div>
+      </div>
+      
       
       
     </div>
