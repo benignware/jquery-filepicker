@@ -30,7 +30,6 @@ Advanced usage
 
 ### Custom style example
 Create a collapsible filepicker using bootstrap-collapse. 
-For more information on the template-structure please refer to [mugine](http://github.com/rexblack/mugine.js).
 
 ```js
 $("input[type='file']").filepicker({
@@ -62,6 +61,7 @@ $("input[type='file']").filepicker({
   });
 });
 ```
+For more information on the template-structure please refer to [mugine](http://github.com/rexblack/mugine.js).
 
 ### Control rendering using callbacks
 Although recommended way of customizing markup is by using a style-template, you can handle rendering on your own by making use of the 'renderUI'- and 'renderPreview'-callbacks
