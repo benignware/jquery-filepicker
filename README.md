@@ -46,6 +46,8 @@ Default value: `null`
 
 Override thumbnail rendering by providing a callback function with the following arguments `img`, `file`. Return `false` in order to prevent default style-rendering.
 
+Advanced Usage
+--------------
 
 ### Custom style example
 Create a collapsible filepicker using bootstrap-collapse.
